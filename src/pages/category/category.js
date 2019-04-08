@@ -5,7 +5,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/app.js'
 import Foot from 'components/Foot.vue'
-
+import mixin from 'js/mixin'
 new Vue({
     el:'#app',
     data:{
@@ -45,6 +45,6 @@ new Vue({
     },
     components:{
         Foot
-    }
-
+    },
+    mixins:[mixin]
 })

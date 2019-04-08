@@ -3,7 +3,8 @@ let url = {
     banner:'/index/banner',
     topLists:'/category/topList',
     rank:'/category/rank',
-    subList:'/category/subList'
+    subList:'/category/subList',
+    searchList:'/search/list'
 }
 
 let host = 'https://www.easy-mock.com/mock/5c45f81e0714c82b413833d1/shop'
