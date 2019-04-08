@@ -25,11 +25,7 @@ new Vue({
             })
         },
         getSubList(index,id){
-            console.log(index,id)
-            
-
             this.topIndex = index
-
             if(index === 0){
                 this.getRank()
             }else{
@@ -42,7 +38,10 @@ new Vue({
             axios.get(url.rank).then(res =>{
                 this.rankData = res.data.data
             }) 
-        }
+        },
+       toSearch(list){
+           location.href = `search.html?keyword=${list.name}&id=${list.id}`
+       }
     },
     components:{
         Foot
