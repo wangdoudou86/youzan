@@ -1,3 +1,106 @@
 import './cart_base.css'
 import './cart_trade.css'
 import './cart.css'
+
+import Vue from 'vue'
+import axios from 'axios'
+import url from 'js/app.js'
+import mixin from 'js/mixin'
+
+new Vue({
+    el:'.container',
+    data:{
+        lists:null,
+        totalPrice:0,
+        totalNum:0,
+        editingShop: null,
+        editingShopIndex: -1
+        },
+    computed:{
+        allSelected:{
+            get(){
+                if(this.lists&&this.lists.length){
+                    return this.lists.every(shop=>{ //every的值要return出去
+                        return shop.checked
+                    })
+                }
+                return false
+            },
+            set(newVal){
+                this.lists.forEach(shop=>{
+                    shop.checked = newVal
+                    shop.goodsList.forEach(good=>{
+                        good.checked = newVal
+                    })
+                })
+            }
+        },
+        selectdList(){
+            if(this.lists&&this.lists.length){
+                let arr = []
+                let total = 0
+                let totalNum = 0
+                this.lists.forEach(shop=>{
+                    shop.goodsList.forEach(good=>{
+                        if(good.checked){
+                            arr.push(good)
+                            total += good.price * good.number
+                            totalNum = arr.length
+                        }
+                    })
+                })
+                this.totalPrice = total
+                this.totalNum = totalNum
+                return arr
+            }
+                return []
+        }
+    },
+    created(){
+        this.getList()
+    },
+    methods:{
+        getList(){
+            axios.get(url.cartList).then( res => {
+                let lists = res.data.cartList
+                lists.forEach(shop => {
+                    shop.checked = true
+                    shop.editMsg = '编辑'
+                    shop.editing = false
+                    shop.goodsList.forEach(good =>{
+                        good.checked = true
+                    })
+                })
+                this.lists = lists
+            })
+        },
+        selectGood(good,shop){
+            good.checked = !good.checked
+            shop.checked = shop.goodsList.every(good=>{
+                return good.checked
+            })
+        },
+        selectShop(shop){
+            shop.checked = !shop.checked
+            shop.goodsList.forEach(good=>{
+                good.checked = shop.checked
+            })
+        },
+        selectAll(){
+            this.allSelected = !this.allSelected
+        },
+        edit(shop,shopIndex){
+            shop.editing = !shop.editing
+            shop.editMsg = shop.editing ? '完成' : '编辑'
+            this.lists.forEach((item,id)=>{
+                if(shopIndex !== id){
+                    item.editing = false
+                    item.editMsg = shop.editing ? '' : '编辑'
+                }
+            })
+            this.editingShop = shop.editing ? shop : null
+            this.editingShopIndex = shop.editing ? shop.Id : -1
+        }
+    },
+    mixins:[mixin]
+})

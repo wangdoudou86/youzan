@@ -7,7 +7,12 @@ let url = {
     searchList:'/search/list',
     details:'/goods/details',
     deal:'/goods/deal',
-    cartAdd:'/cart/add'
+    cartAdd:'/cart/add',
+    cartRemove:'/cart/remove',
+    cartMremove: '/cart/mremove',
+    cartReduce: '/cart/reduce',
+    cartList: '/cart/list',
+    cartUpdate: '/cart/update'
 }
 
 let host = 'https://www.easy-mock.com/mock/5c45f81e0714c82b413833d1/shop'
