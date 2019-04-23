@@ -12,7 +12,12 @@ let url = {
     cartMremove: '/cart/mremove',
     cartReduce: '/cart/reduce',
     cartList: '/cart/list',
-    cartUpdate: '/cart/update'
+    cartUpdate: '/cart/update',
+    addressList: '/address/list',
+    addressAdd: '/address/add',
+    addressRemove: '/address/remove',
+    addressUpdate: '/address/update',
+    addressSetDefault: '/address/setDefault'
 }
 
 let host = 'https://www.easy-mock.com/mock/5c45f81e0714c82b413833d1/shop'
