@@ -207,15 +207,16 @@ new Vue({
         },
         end(e,good,shopIndex,goodIndex){
             let endX = e.changedTouches[0].clientX
-            let left = '0px'
+            let left = '222'
             if(good.startX - endX > 100){
                 left = '-60px'
             }
             if(endX - good.startX > 100){
                 left = '0px'
             }
+            // console.log(this.$refs[`good-${shopIndex}-${goodIndex}`])
             Velocity(this.$refs[`good-${shopIndex}-${goodIndex}`],
-            {left},"ease-in-out")
+            {left})
         }
     },
     mixins:[mixin]
