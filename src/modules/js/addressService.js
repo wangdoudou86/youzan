@@ -10,7 +10,7 @@ class Address{
     static remove(id){
         return fetch(url.addressRemove,id)
     }
-    static updata(data){
+    static update(data){
         return fetch(url.addressRemove,data)
     }
     static setDafault(id){
