@@ -20,15 +20,18 @@
 <script>
 import Address from 'js/addressService.js'
 export default {
-    data(){
-        return {
-            lists:null
+    created(){
+        // Address.getList().then(res=>{
+        //     this.lists = res.data.lists
+        // })
+        if(!this.lists){
+            this.$store.dispatch('getLists')
         }
     },
-    created(){
-        Address.getList().then(res=>{
-            this.lists = res.data.lists
-        })
+    computed:{
+        lists(){
+            return this.$store.state.lists
+        }
     },
     methods:{
         toEdit(list){

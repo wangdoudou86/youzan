@@ -20,10 +20,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- <link rel="stylesheet" href="./css/common.css"> -->
   <!-- <link rel="stylesheet" href="./css/category.css"> -->
+  <style>
+    [v-cloak]{display:none;}
+    </style>
 </head>
 
 <body class=" " style="">
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="container with-bottom-nav" style="min-height: 667px; height: 100vh;">
       <div class="custom-search js-search-bar">
         <form>
@@ -51,6 +54,7 @@
       </div>
       <div class="search-content" style="display: none;"></div>
       <div class="content" style="height: 100%;">
+        <!-- 侧边栏导航 -->
         <div class="class-nav">
           <div id="scroll-nav" style="height:100%;">
             <ul class="nav" id="scroll-nav-content" style="height: 540px; transform: translate3d(0px, 0px, 0px);">

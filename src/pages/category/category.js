@@ -28,11 +28,24 @@ new Vue({
             this.topIndex = index
             if(index === 0){
                 this.getRank()
-            }else{
-                axios.get(url.subList,{id}).then(res =>{
+            }else if(id === 1){
+                axios.post(url.subListFood,{id}).then(res =>{
                     this.subList = res.data.data
-                }) 
+                })
+            }else if(id === 800){
+                axios.post(url.subListWomen,{id}).then(res =>{
+                    this.subList = res.data.data
+                })
+            }else if(id === 810){
+                axios.post(url.subListMen,{id}).then(res =>{
+                    this.subList = res.data.data
+                })
+            }else if(id === 817){
+                axios.post(url.subListDigital,{id}).then(res =>{
+                    this.subList = res.data.data
+                })
             }
+            
         },
         getRank(){
             axios.get(url.rank).then(res =>{

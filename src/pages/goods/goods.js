@@ -13,8 +13,8 @@ import qs from 'qs'
 import mixin from 'js/mixin'
 import Swipe from 'components/Swipe.vue'
 
-let {id} = qs.parse(location.search.substr(1))
-let detailTab = ['商品详情','本店成交']
+let {id} = qs.parse(location.search.substr(1)) // id=xxx  {id:xxx}
+let detailTab = ['商品详情','本店成交'] 
 new Vue({
     el:'#app',
     data:{
@@ -38,7 +38,7 @@ new Vue({
                 let data = res.data.data
                 this.details = data
                 this.details.imgs.forEach(item => {
-                    this.swipeLists.push({
+                    this.swipeLists.push({ //轮播图
                         clickUrl:'',
                         image:item
                     })
@@ -61,8 +61,8 @@ new Vue({
             this.skuType = type
             this.showSku = true
         },
-        changeSkuNum(num){
-            if(num<0 && this.skuNum===1)return 
+        changeSkuNum(num){ //数量加1减1
+            if(num<0 && this.skuNum===1) return 
             this.skuNum += num
         },
         addCart(){

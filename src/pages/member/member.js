@@ -1,32 +1,8 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-
-Vue.use(Router)
-
-let routes = [{
-    path:'/',
-    component: require('./components/member.vue')
-},{
-    path:'/address',
-    component: require('./components/address.vue'),
-    children:[{
-        path:'',
-        redirect: 'addressList'
-    },{
-        path: 'addressList',
-        name: 'addressList',
-        component: require('./components/addressList.vue')
-    },{
-        path: 'form',
-        name: 'form',
-        component: require('./components/form.vue')
-    }]
-}]
-let router = new Router({
-    routes
-})
-
+import router from './router/index.js'
+import store from './vuex/index.js'
 new Vue({
     el:'#app',
-    router
+    router,
+    store
 })

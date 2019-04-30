@@ -13,7 +13,7 @@ class Address{
     static update(data){
         return fetch(url.addressRemove,data)
     }
-    static setDafault(id){
+    static setDefault(id){
         return fetch(url.addressSetDefault,id)
     }
 }
