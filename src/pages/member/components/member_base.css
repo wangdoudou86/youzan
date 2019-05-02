@@ -449,7 +449,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 .content {
-  margin: 0 auto
+  margin: 0 auto;
+  height:736px;
+  overflow: scroll;
 }
 
 .container .content {

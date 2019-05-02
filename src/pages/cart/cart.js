@@ -8,6 +8,7 @@ import url from 'js/app.js'
 import mixin from 'js/mixin.js'
 import Velocity from 'velocity-animate'
 import Cart from 'js/cartService.js'
+
 new Vue({
     el:'.container',
     data:{

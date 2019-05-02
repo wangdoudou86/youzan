@@ -136,17 +136,18 @@
         </div>
       </div>
     </div>
+    <foot></foot>
   </div>
 </template>
 
 <script>
+import Foot from 'components/Foot.vue'
 export default {
-  
+    components:{ Foot }  
 }
 </script>
 
 <style scoped>
 @import './member_base.css';
 @import './member.css';
-
 </style>
