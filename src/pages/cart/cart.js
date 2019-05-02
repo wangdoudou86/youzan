@@ -8,9 +8,11 @@ import url from 'js/app.js'
 import mixin from 'js/mixin.js'
 import Velocity from 'velocity-animate'
 import Cart from 'js/cartService.js'
+import Foot from 'components/Foot.vue'
 
 new Vue({
     el:'.container',
+    components:{ Foot },
     data:{
         lists:null,
         totalPrice:0,

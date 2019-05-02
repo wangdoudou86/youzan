@@ -161,7 +161,9 @@ body.body-fixed-bottom {
 }
 
 .container {
-  background-color: #f8f8f8
+  background-color: #f8f8f8;
+  /* padding-bottom:50px; */
+
 }
 
 strong {
@@ -449,7 +451,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 .content {
-  margin: 0 auto
+  margin: 0 auto;
+  padding-bottom:50px;
 }
 
 .container .content {
